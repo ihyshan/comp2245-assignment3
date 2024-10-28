@@ -56,19 +56,20 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Step 5: Reset the game when "New Game" button is clicked
-    const newGameButton = document.getElementById("new-game"); // Select the new game button
-    if (newGameButton) {
+    const newGameButton = document.getElementById("new-game"); // Check for "New Game" button
+
+    if (newGameButton) {  // Only add event listener if button exists
         newGameButton.addEventListener("click", () => {
             squares.forEach(square => {
-                square.textContent = "";          
-                square.classList.remove("X", "O"); 
+                square.textContent = "";           // Clear each square's text
+                square.classList.remove("X", "O"); // Remove both X and O classes from each square
             });
-            const status = document.getElementById("status");  
-            status.classList.remove("you-won");     
-            status.textContent = "Move your mouse over a square and click to play an X or an O."; 
-            currentPlayer = "X";                    
+            const status = document.getElementById("status");  // Get the status div
+            status.classList.remove("you-won");     // Remove winning style
+            status.textContent = "Move your mouse over a square and click to play an X or an O."; // Reset status text
+            currentPlayer = "X";                    // Reset player to X
         });
     } else {
-        console.error("New Game button not found! Ensure it has the correct id.");
+        console.error("New Game button not found! Ensure it has the correct id."); // Log error if button not found
     }
 });
