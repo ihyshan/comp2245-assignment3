@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
         square.classList.add("square");
     });
 
+
     // Step 2: Add an "X" or "O" when a square is clicked
     squares.forEach(square => {
         square.addEventListener("click", () => {
@@ -17,6 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 square.classList.add(currentPlayer);  
                 checkWinner();  
                 currentPlayer = currentPlayer === "X" ? "O" : "X";  
+
             }
         });
     });
@@ -28,6 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
         square.addEventListener("mouseout", () => {
             square.classList.remove("hover");  
+
         });
     });
 
@@ -37,6 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
             [0, 1, 2], [3, 4, 5], [6, 7, 8],  
             [0, 3, 6], [1, 4, 7], [2, 5, 8],  
             [0, 4, 8], [2, 4, 6]              
+
         ];
 
         for (const combo of winningCombinations) {
@@ -51,6 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 status.classList.add("you-won");  
                 status.textContent = `Congratulations! ${winner} is the Winner!`;  
                 return;  
+
             }
         }
     }
@@ -72,4 +77,5 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
         console.error("New Game button not found! Ensure it has the correct id."); // Log error if button not found
     }
+
 });
